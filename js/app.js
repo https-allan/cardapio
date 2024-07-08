@@ -120,6 +120,11 @@ function removeItemCart(name) {
 }
 
 function getDataEntry() {
+  const total = cart
+    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .toFixed(2)
+    .replace(".", ",");
+
   addressInput.addEventListener("input", (e) => {
     let inputValue = e.target.value;
 
@@ -154,7 +159,9 @@ function getDataEntry() {
 
     const cartItems = cart
       .map((item) => {
-        return `${item.name}\nQuantidade: ${item.quantity} Preço: ${item.price}`;
+        return `*${item.name}*\nQuantidade: ${
+          item.quantity
+        }\nPreço: R$ ${item.price.toFixed(2).replace(".", ",")}`;
       })
       .join("");
 
