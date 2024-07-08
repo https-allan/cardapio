@@ -176,6 +176,7 @@ function getDataEntry() {
 
     window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 
+    addressInput.value = "";
     cart = [];
     updateCartDisplay();
   });
