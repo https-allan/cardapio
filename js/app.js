@@ -155,6 +155,9 @@ function getDataEntry() {
       `https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`,
       "_blank"
     );
+
+    cart = [];
+    updateCartDisplay();
   });
 }
 
