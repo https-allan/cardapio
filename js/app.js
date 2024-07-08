@@ -1,5 +1,5 @@
-const shoppingCartModal = document.getElementById("shopping-cart-modal");
 const cartItemsContainer = document.getElementById("cart-items");
+const shoppingCartModal = document.getElementById("shopping-cart-modal");
 const closeModalButton = document.getElementById("close-modal-btn");
 const checkoutButton = document.getElementById("checkout-btn");
 const addressWarning = document.getElementById("address-warn");
@@ -155,7 +155,7 @@ function getDataEntry() {
       })
       .join("");
 
-    const message = `${cartItems}\n*Total: R$ ${total}*\n\n*Endereço:* ${addressInput.value}`;
+    const message = `${cartItems}\n\n*Endereço:* ${addressInput.value}\n*Total: R$ ${total}*\n`;
     const encodedMessage = encodeURIComponent(message);
     const phone = "65996071844";
 
