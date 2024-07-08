@@ -164,7 +164,7 @@ function getDataEntry() {
 
     const cartItems = cart
       .map((item) => {
-        return `*${item.name}*\nQuantidade: ${
+        return `\n*${item.name}*\nQuantidade: ${
           item.quantity
         }\nPreço: R$ ${item.price.toFixed(2).replace(".", ",")}\n`;
       })
