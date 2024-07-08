@@ -135,6 +135,21 @@ function getDataEntry() {
   checkoutButton.addEventListener("click", (e) => {
     const isOpen = checkIfSnackBarIsOpen();
 
+    if (!isOpen) {
+      Toastify({
+        text: "Desculpe, a lanchonete está fechada no momento.",
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+          background: "#ef4444",
+        },
+      }).showToast();
+      return;
+    }
+
     if (cart.length == 0) return;
     if (addressInput.value === "") {
       addressWarning.classList.remove("hidden");
