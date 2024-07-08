@@ -75,10 +75,13 @@ function updateCartDisplay() {
     .replace(".", ",");
 
   cartCounter.innerHTML = cart.length;
-  cartTotal.textContent = `Total: R$ ${total.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  })}`;
+  cartTotal.textContent = `Total: R$ ${parseFloat(total).toLocaleString(
+    "pt-BR",
+    {
+      style: "currency",
+      currency: "BRL",
+    }
+  )}`;
 
   cart.forEach((item) => {
     const cartItemElement = document.createElement("div");
@@ -120,11 +123,6 @@ function removeItemCart(name) {
 }
 
 function getDataEntry() {
-  const total = cart
-    .reduce((acc, item) => acc + item.price * item.quantity, 0)
-    .toFixed(2)
-    .replace(".", ",");
-
   addressInput.addEventListener("input", (e) => {
     let inputValue = e.target.value;
 
@@ -133,45 +131,35 @@ function getDataEntry() {
       addressWarning.classList.add("hidden");
     }
   });
+
   checkoutButton.addEventListener("click", (e) => {
     const isOpen = checkIfSnackBarIsOpen();
-
-    // if (!isOpen) {
-    //   Toastify({
-    //     text: "Desculpe, a lanchonete está fechada no momento.",
-    //     duration: 3000,
-    //     close: true,
-    //     gravity: "top", // `top` or `bottom`
-    //     position: "right", // `left`, `center` or `right`
-    //     stopOnFocus: true, // Prevents dismissing of toast on hover
-    //     style: {
-    //       background: "#ef4444",
-    //     },
-    //   }).showToast();
-    //   return;
-    // }
 
     if (cart.length == 0) return;
     if (addressInput.value === "") {
       addressWarning.classList.remove("hidden");
       addressInput.classList.add("border-red-500");
+      return;
     }
+
+    const total = cart
+      .reduce((acc, item) => acc + item.price * item.quantity, 0)
+      .toFixed(2)
+      .replace(".", ",");
 
     const cartItems = cart
       .map((item) => {
         return `*${item.name}*\nQuantidade: ${
           item.quantity
-        }\nPreço: R$ ${item.price.toFixed(2).replace(".", ",")}`;
+        }\nPreço: R$ ${item.price.toFixed(2).replace(".", ",")}\n`;
       })
       .join("");
 
-    const message = encodeURIComponent(cartItems);
+    const message = `${cartItems}\n*Total: R$ ${total}*\n\n*Endereço:* ${addressInput.value}`;
+    const encodedMessage = encodeURIComponent(message);
     const phone = "65996071844";
 
-    window.open(
-      `https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`,
-      "_blank"
-    );
+    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, "_blank");
 
     cart = [];
     updateCartDisplay();
