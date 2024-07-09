@@ -95,9 +95,9 @@ function updateCartDisplay() {
         .toFixed(2)
         .replace(".", ",")}</p>
       </div>
-      <button class="bg-red-500 text-white p-3 rounded font-semibold remove-from-cart-btn" data-name="${
+      <button class="text-red-500 p-3 rounded font-semibold remove-from-cart-btn" data-name="${
         item.name
-      }">Remover</button>
+      }"><i class="fa-solid fa-trash-can"></i></button>
     </div>
     `;
 
