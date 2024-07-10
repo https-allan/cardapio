@@ -95,9 +95,12 @@ function updateCartDisplay() {
         .toFixed(2)
         .replace(".", ",")}</p>
       </div>
-      <button class="text-red-500 p-3 rounded font-semibold remove-from-cart-btn" data-name="${
+      <button class="text-red-500 p-4 text-lg rounded-lg font-semibold remove-from-cart-btn" data-name="${
         item.name
-      }"><i class="fa-solid fa-trash-can"></i></button>
+      }">
+          <i class="fa-solid fa-trash-can text-2xl"></i>
+    </button>
+
     </div>
     `;
 
@@ -202,9 +205,9 @@ if (isOpen) {
 }
 
 cartItemsContainer.addEventListener("click", (e) => {
-  if (e.target.classList.contains("remove-from-cart-btn")) {
-    const name = e.target.getAttribute("data-name");
-
+  const removeBtn = e.target.closest(".remove-from-cart-btn");
+  if (removeBtn) {
+    const name = removeBtn.getAttribute("data-name");
     removeItemCart(name);
   }
 });
