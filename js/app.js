@@ -57,6 +57,18 @@ function addToCart(name, price) {
     });
   }
 
+  Toastify({
+    text: `Adicionado ${name} ao carrinho`,
+    duration: 3000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "#10B981",
+    },
+  }).showToast();
+
   updateCartDisplay();
 }
 
