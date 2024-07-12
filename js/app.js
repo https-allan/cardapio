@@ -4,10 +4,10 @@ const closeModalButton = document.getElementById("close-modal-btn");
 const checkoutButton = document.getElementById("checkout-btn");
 const addressWarning = document.getElementById("address-warn");
 const addressInput = document.getElementById("address");
-const cartCounter = document.getElementById("cart-count");
 const cartButton = document.getElementById("cart-btn");
 const cartTotal = document.getElementById("total");
 const menu = document.getElementById("menu");
+const showOrders = document.getElementById("show-orders");
 
 let cart = [];
 
@@ -17,7 +17,7 @@ function showToast(color, message) {
     duration: 3000,
     close: true,
     gravity: "top", // `top` or `bottom`
-    position: "right", // `left`, `center` or `right`
+    position: "center", // `left`, `center` or `right`
     stopOnFocus: true, // Prevents dismissing of toast on hover
     style: {
       background: `#${color}`,
@@ -30,6 +30,13 @@ function calculateTotal(cart) {
     .reduce((acc, item) => acc + item.price * item.quantity, 0)
     .toFixed(2)
     .replace(".", ",");
+}
+
+function updateShowOrdersButton() {
+  const hasItemsInCart = cart.length > 0;
+
+  showOrders.classList.toggle("hidden", !hasItemsInCart);
+  showOrders.classList.toggle("flex", hasItemsInCart);
 }
 
 function sendWhatsAppMessage(message) {
@@ -91,6 +98,7 @@ function resetForm() {
 function initializeToggleShoppingCart() {
   cartButton.addEventListener("click", () => {
     updateCartDisplay();
+
     shoppingCartModal.classList.remove("hidden");
     shoppingCartModal.classList.add("flex");
   });
@@ -110,6 +118,19 @@ function initializeToggleShoppingCart() {
 function updateCartItemCount() {
   menu.addEventListener("click", (e) => {
     const parentButton = e.target.closest(".add-to-cart-btn");
+
+    if (parentButton) {
+      const dataName = parentButton.getAttribute("data-name");
+      const dataPrice = parseFloat(parentButton.getAttribute("data-price"));
+
+      addToCart(dataName, dataPrice);
+    }
+  });
+}
+
+function updateCartItemCount() {
+  menu.addEventListener("click", (e) => {
+    const parentButton = e.target.closest(".add-to-cart-btn");
     if (parentButton) {
       const dataName = parentButton.getAttribute("data-name");
       const dataPrice = parseFloat(parentButton.getAttribute("data-price"));
@@ -121,7 +142,12 @@ function updateCartItemCount() {
 
 function addToCart(name, price) {
   const existingItem = cart.find((item) => item.name === name);
+  const addCart = document.querySelector("add-to-cart-btn");
+
   if (existingItem) {
+    showOrders.classList.remove("hidden");
+    showOrders.classList.add("flex");
+
     existingItem.quantity++;
   } else {
     cart.push({
@@ -131,7 +157,7 @@ function addToCart(name, price) {
     });
   }
 
-  showToast("10B981", `Adicionado ${name} ao carrinho`);
+  showToast("10B981", `Adicionado ao carrinho`);
   updateCartDisplay();
 }
 
@@ -145,9 +171,9 @@ function updateCartDisplay() {
   );
 
   const total = calculateTotal(cart);
-
-  cartCounter.innerHTML = cart.length;
+  const showTotal = document.getElementById("show-total");
   cartTotal.textContent = total;
+  showTotal.textContent = `R$ ${total}`;
 
   cart.forEach((item) => {
     const cartItemElement = document.createElement("div");
@@ -170,6 +196,8 @@ function updateCartDisplay() {
     `;
     cartItemsContainer.appendChild(cartItemElement);
   });
+
+  updateShowOrdersButton();
 }
 
 function removeItemCart(name) {
