@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tailwindcss -i ./css/style.css -o ./css/output.css --watch"
+    "dev": "npx tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch",
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "^3.4.4"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.3"
   }
 }
