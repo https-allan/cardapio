@@ -1,30 +1,35 @@
-<header class="hidden md:flex top-0 w-full bg-white shadow-md">
-  <nav class="w-full">
-    <ul class="flex p-3">
-      <li class="mr-3">
+<header class="hidden md:flex top-0 w-full shadow-md absolute">
+  <nav class="flex justify-between h-16 w-full">
+    <div class="flex items-center pl-4">
+      <a href="#" class="text-lg text-white font-bold">Burger Delight</a>
+    </div>
+
+    <ul class="flex items-center justify-end pr-4">
+      <li class="mr-6 relative">
         <a
           href="/orders"
-          class="text-sm text-gray-400 hover:text-black/70 ease-in-out duration-150"
+          class="text-gray-300 hover:text-white transition duration-300"
         >
           <i class="fa-solid fa-receipt mr-2"></i>
           Pedidos
         </a>
       </li>
-
-      <li>
+      <li class="mr-6">
         <a
           href="/promotions"
-          class="text-sm text-gray-400 hover:text-black/70 ease-in-out duration-150"
+          class="text-gray-300 hover:text-white transition duration-300"
         >
           <i class="fa-solid fa-tag mr-2"></i>
           Promoções
         </a>
       </li>
-
-      <li class="ml-auto">
-        <a href="/" class="text-gray-400 hover:text-black/70">
-          <i class="fa-solid fa-sign-out mx-2"></i>
-          Sair
+      <li>
+        <a
+          href="/profile"
+          class="text-gray-300 hover:text-white transition duration-300"
+        >
+          <i class="fas fa-user mr-2"></i>
+          Perfil
         </a>
       </li>
     </ul>

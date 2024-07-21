@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 
 const promocao = require("./routes/promotions");
+const profile = require("./routes/profile");
 const pedidos = require("./routes/orders");
 const home = require("./routes/home");
 
@@ -16,6 +17,7 @@ app.set("view engine", "handlebars");
 app.use(express.static(path.join(__dirname, "/public")));
 
 app.use(promocao);
+app.use(profile);
 app.use(pedidos);
 app.use(home);
 

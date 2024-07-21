@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/orders", (req, res) => {
-  res.render("orders");
+router.get("/profile", (req, res) => {
+  res.send("profile");
 });
 
 module.exports = router;
