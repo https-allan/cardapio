@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/pedidos", (req, res) => {
+router.get("/orders", (req, res) => {
   res.send("pagina de pedidos");
 });
 
