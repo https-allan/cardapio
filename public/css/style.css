@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer utilities {
-  .bg-black {
-    background-color: #000000;
+  .bg-zinc {
+    background-color: #27272a;
   }
   .bg-default-color {
     background-color: #f5f5f5; 

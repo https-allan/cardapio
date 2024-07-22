@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/promotions", (req, res) => {
-  res.render("promotions");
+  res.render("promotions", { isBackGroundPage: true });
 });
 
 module.exports = router;
