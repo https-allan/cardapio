@@ -7,7 +7,6 @@
     "node": "20.x"
   },
   "scripts": {
-    "dev": "npx tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch",
     "start": "nodemon app.js"
   },
   "keywords": [],
@@ -23,6 +22,5 @@
     "express-session": "^1.18.0",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
-    
   }
 }
