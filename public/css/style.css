@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    background-color: #f6f7f8;
+@layer utilities {
+  .bg-black {
+    background-color: #000000;
+  }
+  .bg-default-color {
+    background-color: #f5f5f5; 
+  }
 }

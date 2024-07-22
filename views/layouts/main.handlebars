@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="css/output.css" />
   </head>
 
-  <body style="background-color: #f5f5f5;">
+<body class="{{#if isOrdersPage}}bg-black{{else}}bg-default-color{{/if}}">
     {{> _header}}
     {{{body}}}
     {{> _footer}}
