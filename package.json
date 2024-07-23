@@ -6,9 +6,6 @@
   "scripts": {
     "start": "nodemon app.js"
   },
-  "engines": {
-    "node": "20.x"
-  },
   "keywords": [],
   "author": "Allan José",
   "license": "ISC",
