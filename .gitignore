@@ -1,3 +1,6 @@
 /node_modules
 /database.sqlite
 .vercel
+
+# Local Netlify folder
+.netlify
