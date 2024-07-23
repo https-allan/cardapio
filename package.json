@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "dev": "npx tailwindcss -i ./public/css/style.css -o ./public/css/output.css --watch"
   },
   "keywords": [],
   "author": "Allan José",
