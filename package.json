@@ -6,6 +6,9 @@
   "scripts": {
     "start": "nodemon app.js"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "keywords": [],
   "author": "Allan José",
   "license": "ISC",
@@ -18,8 +21,5 @@
     "express-session": "^1.18.0",
     "sequelize": "^6.37.3",
     "sqlite3": "^5.1.7"
-  },
-  "engines": {
-    "node": "20.x"
   }
 }
