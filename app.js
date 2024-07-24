@@ -12,7 +12,6 @@ const profile = require("./routes/profile");
 const pedidos = require("./routes/orders");
 const admin = require("./routes/admin");
 const home = require("./routes/home");
-const user = require("./routes/user");
 
 app.engine(
   "handlebars",
@@ -38,7 +37,6 @@ app.use(profile);
 app.use(pedidos);
 app.use(admin);
 app.use(home);
-app.use(user);
 
 app.listen(port, () => {
   console.log(`Server running in http://localhost:${port}`);
