@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../model/User");
 
 router.get("/register", (req, res) => {
-  res.render("user/register");
+  res.render("login/register", { isRegisterRoute: false });
 });
 
 module.exports = router;

@@ -38,6 +38,7 @@ app.use(profile);
 app.use(pedidos);
 app.use(admin);
 app.use(home);
+app.use(user);
 
 app.listen(port, () => {
   console.log(`Server running in http://localhost:${port}`);
