@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("home", { showHeader: true, showFooter: true });
+router.get("/login", (req, res) => {
+  req.res("rota cadastrar funcionando");
 });
 
 module.exports = router;

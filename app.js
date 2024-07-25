@@ -8,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const promocao = require("./routes/promotions");
+const register = require("./routes/register");
 const profile = require("./routes/profile");
 const pedidos = require("./routes/orders");
 const admin = require("./routes/admin");
@@ -32,11 +33,12 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, "/public")));
 
-app.use(promocao);
-app.use(profile);
-app.use(pedidos);
-app.use(admin);
-app.use(home);
+app.use("/", promocao);
+app.use("/", register);
+app.use("/", profile);
+app.use("/", pedidos);
+app.use("/", admin);
+app.use("/", home);
 
 app.listen(port, () => {
   console.log(`Server running in http://localhost:${port}`);
