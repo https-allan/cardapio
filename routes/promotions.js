@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get("/promotions", (req, res) => {
   res.render("promotions", {
-    showBackground: true,
+    showBackgroundColor: true,
     showHeader: true,
     showFooter: true,
   });

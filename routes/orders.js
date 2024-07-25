@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get("/orders", (req, res) => {
   res.render("orders", {
-    showBackground: true,
+    showBackgroundColor: true,
     showHeader: true,
     showFooter: true,
   });
